@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechStore - Интернет-магазин техники</title>
+    <meta name="description" content="Лучший выбор техники по доступным ценам">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header role="banner" class="header">
+        <div class="container">
+            <div class="header__top">
+                <a href="index.html" class="logo">
+                    <h1 class="logo__text">TechStore</h1>
+                </a>
+                <div class="header__search">
+                    <form role="search" class="search-form">
+                        <input type="search" id="search-input" class="search-form__input" placeholder="Поиск товаров..." aria-label="Поиск товаров">
+                        <button type="submit" class="search-form__button">Найти</button>
+                    </form>
+                </div>
+                <div class="header__user-actions">
+                    <button class="user-action" id="cart-toggle" aria-label="Корзина покупок">
+                        <span class="user-action__icon">🛒</span>
+                        <span class="user-action__text">Корзина</span>
+                        <span class="user-action__badge" id="cart-count">0</span>
+                    </button>
+                </div>
+            </div>
+            <nav class="navigation" aria-label="Основная навигация">
+                <ul class="navigation__list">
+                    <li class="navigation__item"><a href="#smartphones" class="navigation__link">Смартфоны</a></li>
+                    <li class="navigation__item"><a href="#laptops" class="navigation__link">Ноутбуки</a></li>
+                    <li class="navigation__item"><a href="#tablets" class="navigation__link">Планшеты</a></li>
+                    <li class="navigation__item"><a href="#accessories" class="navigation__link">Аксессуары</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main role="main" class="main">
+        <div class="container">
+            <section class="hero">
+                <h2 class="hero__title">Техника будущего уже сегодня</h2>
+                <p class="hero__description">Широкий выбор смартфонов, ноутбуков и планшетов по доступным ценам</p>
+                <a href="#products" class="hero__button">Смотреть каталог</a>
+            </section>
+
+            <section class="products" id="products">
+                <h2 class="section-title">Каталог товаров</h2>
+                <div class="products__filter">
+                    <button class="filter-button active" data-category="all">Все товары</button>
+                    <button class="filter-button" data-category="smartphones">Смартфоны</button>
+                    <button class="filter-button" data-category="laptops">Ноутбуки</button>
+                    <button class="filter-button" data-category="tablets">Планшеты</button>
+                </div>
+                <div class="products__grid" id="products-grid">
+                    <!-- Товары будут загружены через JavaScript -->
+                </div>
+            </section>
+
+            <section class="features">
+                <h2 class="sr-only">Преимущества магазина</h2>
+                <div class="features__grid">
+                    <div class="feature">
+                        <div class="feature__icon">🚚</div>
+                        <h3 class="feature__title">Бесплатная доставка</h3>
+                        <p class="feature__description">При заказе от 20 000 рублей</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature__icon">🔒</div>
+                        <h3 class="feature__title">Гарантия качества</h3>
+                        <p class="feature__description">Официальная гарантия на все товары</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature__icon">💳</div>
+                        <h3 class="feature__title">Удобная оплата</h3>
+                        <p class="feature__description">Наличными или картой при получении</p>
+                    </div>
+                    <div class="feature">
+                        <div class="feature__icon">📞</div>
+                        <h3 class="feature__title">Поддержка 24/7</h3>
+                        <p class="feature__description">Круглосуточная техническая поддержка</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Модальное окно корзины -->
+    <div class="modal" id="cart-modal" aria-hidden="true" role="dialog" aria-labelledby="cart-title">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <div class="modal__header">
+                <h2 id="cart-title" class="modal__title">Корзина покупок</h2>
+                <button class="modal__close" id="cart-close" aria-label="Закрыть корзину">×</button>
+            </div>
+            <div class="modal__body">
+                <div class="cart" id="cart">
+                    <div class="cart__empty" id="cart-empty">
+                        <p>Ваша корзина пуста</p>
+                    </div>
+                    <div class="cart__items" id="cart-items">
+                        <!-- Товары в корзине будут добавлены через JavaScript -->
+                    </div>
+                </div>
+            </div>
+            <div class="modal__footer">
+                <div class="cart__total" id="cart-total">
+                    <p>Итого: <span id="total-price">0</span> руб.</p>
+                </div>
+                <button class="button button--primary" id="checkout-button">Оформить заказ</button>
+            </div>
+        </div>
+    </div>
+
+    <footer role="contentinfo" class="footer">
+        <div class="container">
+            <div class="footer__content">
+                <div class="footer__section">
+                    <h3 class="footer__title">TechStore</h3>
+                    <p class="footer__description">Лучший выбор техники по доступным ценам</p>
+                </div>
+                <div class="footer__section">
+                    <h3 class="footer__title">Контакты</h3>
+                    <address class="footer__address">
+                        <p>г. Москва, ул. Примерная, д. 123</p>
+                        <p>Телефон: <a href="tel:+74951234567">+7 (495) 123-45-67</a></p>
+                        <p>Email: <a href="mailto:info@techstore.ru">info@techstore.ru</a></p>
+                    </address>
+                </div>
+                <div class="footer__section">
+                    <h3 class="footer__title">Информация</h3>
+                    <ul class="footer__links">
+                        <li><a href="#" class="footer__link">О компании</a></li>
+                        <li><a href="#" class="footer__link">Доставка и оплата</a></li>
+                        <li><a href="#" class="footer__link">Гарантия</a></li>
+                        <li><a href="#" class="footer__link">Контакты</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copyright">&copy; 2023 TechStore. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/validation.js"></script>
+</body>
+</html>
